@@ -8,7 +8,7 @@ jobs:
 
     strategy:
       matrix:
-        model: [ "T860", "T865" ]
+        model: [ "T860" ]
 
     steps:
     - uses: actions/checkout@v1
@@ -29,7 +29,7 @@ jobs:
         ./build config                       \
                 os_patch_level=2020-05       \
                 model=${{ matrix.model}}     \
-                name=420rom-BTF2-v10.7.1-Rel \
+                name=420rom-CTE9-v10.7.2-Rel \
                 +magisk                      \
                 +nohardening                 \
                 +nodebug                     \
@@ -67,10 +67,10 @@ jobs:
     - name: Upload Kernel
       uses: actions/upload-artifact@v2
       with:
-        name: 420rom-BTF2-v10.7.1-${{ matrix.model }}-Release-Kernel
+        name: 420rom-CTE9-v10.7.2-${{ matrix.model }}-Release-Kernel
         path: boot.img
     - name: Upload Kernel Info
       uses: actions/upload-artifact@v2
       with:
-        name: ConfigurationInfo-v10.7.1-${{ matrix.model }}-Release-Kernel
+        name: ConfigurationInfo-v10.7.2-${{ matrix.model }}-Release-Kernel
         path: config.*
